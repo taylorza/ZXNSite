@@ -65,9 +65,9 @@
             switch (Unit)
             {
                 case CtcUnits.ms: targetHz = 1 / (Target / 1000); break;
-                case CtcUnits.Hz: targetHz = Target/2; break;
-                case CtcUnits.KHz: targetHz = (Target/2) * 1000; break;
-                case CtcUnits.MHz: targetHz = (Target/2) * 1000000; break;
+                case CtcUnits.Hz: targetHz = Target; break;
+                case CtcUnits.KHz: targetHz = Target * 1000; break;
+                case CtcUnits.MHz: targetHz = Target * 1000000; break;
             }
 
             foreach (var clock in clocks) {
@@ -90,9 +90,9 @@
                 switch(Unit)
                 {
                     case CtcUnits.ms: bestTarget = (1 / bestTarget) * 1000; break;
-                    case CtcUnits.Hz: bestTarget *= 2; break;
-                    case CtcUnits.KHz: bestTarget = (bestTarget*2) / 1000; break;
-                    case CtcUnits.MHz: bestTarget = (bestTarget*2) / 1000000; break;
+                    case CtcUnits.Hz: /*bestTarget = bestTarget*/; break;
+                    case CtcUnits.KHz: bestTarget = bestTarget / 1000; break;
+                    case CtcUnits.MHz: bestTarget = bestTarget / 1000000; break;
                 }
                 Results.Add(new CtcResult(clock, bestPrescalar, bestTimeConst, bestTarget));
             }
