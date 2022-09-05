@@ -1,0 +1,50 @@
+﻿@page "/ctc"
+
+<h3>Counter/Timer Channels</h3>
+<p>The CTC counter/timer that can be programmed for a broad range of counting and timing applications.</p>
+<p>
+    See the ZX Spectrum Next Developer <a href="https://wiki.specnext.dev/CTC" target="_blank">Wiki</a> for more information.
+</p>
+<hr />
+<h4>Configuration Calculator</h4>
+<p>
+    <label>Target</label> 
+    <div style="display:inline;outline:auto">
+        <input type="number" @bind-value="Target" style="text-align:right; border:0; outline:none;width:100px" />
+        <select @bind="Unit" style="border:0; outline:none">
+            <option value="@CtcUnits.ms">ms</option>
+            <option value="@CtcUnits.Hz">Hz</option>
+            <option value="@CtcUnits.KHz">KHz</option>
+            <option value="@CtcUnits.MHz">MHz</option>
+        </select>
+    </div>
+</p>
+
+<table class="result-table">
+    <thead class="result-table-header">
+        <tr><th >CTC Configuration</th></tr>
+    </thead>
+    <tr>
+        <td>
+            <table>
+                <thead class="result-table-header">
+                    <tr>
+                        <th>Clock Speed<br />MHz</th>
+                        <th>Prescaler</th>
+                        <th>Time Const</th>
+                        <th>Actual<br/>@Unit.ToString()</th>
+                    </tr>
+                </thead>
+                @foreach(CtcResult result in Results)
+                {
+                    <tr>
+                        <td align="center">@result.Clock</td>
+                        <td align="center">@result.Prescaler</td>
+                        <td align="center">@result.TimeConst</td>
+                        <td align="right">@result.Actual.ToString("f3")</td>
+                    </tr>
+                }
+            </table>
+        </td>
+    </tr>
+</table>

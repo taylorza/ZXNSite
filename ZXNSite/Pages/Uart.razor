@@ -1,0 +1,91 @@
+﻿@page "/uart"
+
+<h3>UART</h3>
+<p>
+There are two independent fully featured uarts in the next that share the same i/o ports. 
+One is connected to the esp wifi chip and the other is connected to the pi on the gpio pins.
+</p>
+<h4>References</h4>
+<p>
+    <ul>
+        <li><a href="https://gitlab.com/SpectrumNext/ZX_Spectrum_Next_FPGA/-/blob/master/cores/zxnext/ports.txt#L363" target="_blank">Ports.txt</a></li>
+    </ul>
+</p>
+<hr />
+<h4>UART Prescaler Calculator</h4>
+<p>
+    <table class="result-table">
+        <tr>
+            <th>
+                Video Timing
+            </th>
+            <td>
+                <select @bind="VideoTiming" style="border:0; outline:none">
+                    @{
+                        foreach(var timing in _videoTimings){
+                                                    <option value="@timing">@timing.ToString("n0")</option>
+                        }
+                    }
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <th>Target Baud Rate</th>
+            <td>
+                <input type="number" @bind-value="TargetBaud" style="border:0; outline:none" />                
+            </td>
+        </tr>
+        <tr>
+            <th>Prescaler</th>
+            <td>@Math.Round((double)VideoTiming/TargetBaud)</td>
+        </tr>
+        <tr>
+            <th>Actual Baud Rate</th>
+            <td>@((VideoTiming / Math.Round((double)VideoTiming / TargetBaud)).ToString("f2"))</td>
+        </tr>
+    </table>
+</p>
+<hr />
+<h4>UART Prescaler Table</h4>
+
+<table>
+    <tr>
+        <td>
+            <div style="writing-mode:vertical-lr">
+                <b>Video Timing</b>
+            </div>
+        </td>
+        <td>
+            <table class="result-table">
+                <thead class="result-table-header">
+                    <tr >
+                        <td style="border:0"></td>
+                        <td style="border:0; text-align:center" colspan="@_bauds.Length-1"><b>Baud Rates</b></td>
+                    </tr>
+                    <tr>
+                        <td style="border:0"></td>
+                        @{
+                            foreach (var baud in _bauds)
+                            {
+                                        <th>@baud.ToString("n0")</th>
+                            }
+                        }
+                    </tr>
+                </thead>
+                @{
+                    foreach (var timing in _videoTimings)
+                    {
+                                <tr>
+                                    <th>@timing.ToString("n0")</th>
+                                    @foreach (var baud in _bauds)
+                            {
+                                        <td style="text-align:right">@(Math.Round((double)timing / baud))</td>
+                            }
+                                </tr>
+                    }
+                }
+            </table>
+        </td>
+    </tr>
+</table>
+
