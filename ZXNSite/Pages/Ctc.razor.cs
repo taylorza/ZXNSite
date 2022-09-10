@@ -56,9 +56,9 @@
             var bestPrescalar = 0;
             var bestTimeConst = 0;
             var bestTarget = 0.0;
-            
 
-            var clocks = new double[] { 3.5, 7, 14, 28 };
+
+            var clocks = new double[] { 28000000/*, 28571429, 29464286, 30000000, 31000000, 32000000, 33000000, 27000000*/ };
             var prescalars = new int[]{ 16, 256 };
 
             var targetHz = 0.0;
@@ -76,7 +76,7 @@
                 {
                     for (var timeConst = 1; timeConst <= 256; timeConst++)
                     {
-                        var hz = (clock * 1000000) / prescalar / timeConst;
+                        var hz = clock / prescalar / timeConst;
                         var delta = Math.Abs(hz - targetHz);
                         if (delta < bestDelta)
                         {
