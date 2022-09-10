@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="125" height="25" viewBox="0 0 125 25" xml:space="preserve">
+    <desc>ZX Spectrum Colour Bands</desc>
+    <polygon style="stroke-width: 0; fill: rgb(255,0,0);   fill-rule: nonzero; opacity: 1;"  points=" 25,0  50,0  25,25  0,25 " />
+    <polygon style="stroke-width: 0; fill: rgb(255,255,0); fill-rule: nonzero; opacity: 1;"  points=" 50,0  75,0  50,25 25,25 " />
+    <polygon style="stroke-width: 0; fill: rgb(0,255,0);   fill-rule: nonzero; opacity: 1;"  points=" 75,0 100,0  75,25 50,25 " />
+    <polygon style="stroke-width: 0; fill: rgb(0,0,255);   fill-rule: nonzero; opacity: 1;"  points="100,0 125,0 100,25 75,25 " />
+</svg>
