@@ -39,7 +39,7 @@
                 @foreach(CtcResult result in Results)
                 {
                     <tr>
-                        <td align="center">@result.Clock</td>
+                        <td align="center">@result.Clock.ToString("n0")</td>
                         <td align="center">@result.Prescaler</td>
                         <td align="center">@result.TimeConst</td>
                         <td align="right">@result.Actual.ToString("f3")</td>
