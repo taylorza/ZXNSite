@@ -1,35 +1,32 @@
-﻿<div class="menu">
-    <div class="ps-0 navbar navbar-dark">
-        <div class="container-fluid">
-            <img src="images/ZXSpectrumNext.jpeg" style="width:100%" />
-            <a class="navbar-brand" href="">ZX Spectrum Next</a>
-            <button title="Navigation menu" class="navbar-toggler" @onclick="ToggleNavMenu">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-        </div>
-    </div>
-
-    <div class="@NavMenuCssClass" @onclick="ToggleNavMenu">
-        <nav class="flex-column">
-            <div class="nav-item px-3">
-                <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
-                    <span class="oi oi-home" aria-hidden="true"></span> Home
-                </NavLink>
-            </div>
-            <div class="nav-item px-3">
-                <NavLink class="nav-link" href="uart">
-                    <span class="oi oi-list-rich" aria-hidden="true"></span> UART
-                </NavLink>
-            </div>
-            <div class="nav-item px-3">
-                <NavLink class="nav-link" href="ctc">
-                    <span class="oi oi-list-rich" aria-hidden="true"></span> CTC
-                </NavLink>
-            </div>
-        </nav>
+﻿<div class="ps-0 navbar navbar-dark">
+    <div class="container-fluid">
+        <img src="images/ZXSpectrumNext.jpeg" style="width:100%" />
+        <a class="navbar-brand" href="">ZX Spectrum Next</a>
+        <button title="Navigation menu" class="navbar-toggler" @onclick="ToggleNavMenu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
     </div>
 </div>
-<img src="images/ZXSpectrumColourBands.svg?0" alt="ZX Spectrum">
+
+<div class="@NavMenuCssClass" @onclick="ToggleNavMenu">
+    <nav class="flex-column">
+        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
+                <span class="oi oi-home" aria-hidden="true"></span> Home
+            </NavLink>
+        </div>
+        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="uart">
+                <span class="oi oi-list-rich" aria-hidden="true"></span> UART
+            </NavLink>
+        </div>
+        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="ctc">
+                <span class="oi oi-list-rich" aria-hidden="true"></span> CTC
+            </NavLink>
+        </div>
+    </nav>
+</div>
 
 @code {
     private bool collapseNavMenu = true;
